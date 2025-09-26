@@ -183,11 +183,33 @@ body {
   }
   
   .nav-menu {
-    display: none;
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    transition: left 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    z-index: 999;
+    display: flex;
+  }
+  
+  .nav-menu.active {
+    left: 0;
   }
   
   .hamburger {
     display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+  }
+  
+  .nav-menu li {
+    margin: 1rem 0;
   }
 }
 
