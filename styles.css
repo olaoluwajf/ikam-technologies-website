@@ -130,6 +130,11 @@ body {
   color: var(--primary);
   font-size: var(--font-size-2xl);
   font-weight: 700;
+  
+}
+
+.nav-logo a{
+text-decoration: none;
 }
 
 .nav-menu {
@@ -337,6 +342,15 @@ body {
   box-shadow: var(--shadow-lg);
   text-align: center;
   transition: var(--transition-normal);
+}
+
+.avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
 .tech-card:hover {
