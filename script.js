@@ -44,42 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                subject: formData.get('subject'),
-                message: formData.get('message')
-            };
-            
-            // Simple validation
-            if (!data.name || !data.email || !data.message) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                showMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = contactForm.querySelector('.form-submit');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call delay
-            setTimeout(() => {
-                showMessage('Thank you for your message! We\'ll get back to you soon.', 'success');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
+
+            emailjs.sendForm('ikam_technologies', 'template_4oasvp6', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
         });
     }
     
